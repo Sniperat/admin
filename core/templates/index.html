@@ -1,19 +1,143 @@
 {% extends "layouts/base.html" %}
+{% load static %}
 
 {% block title %} Dashboard {% endblock %}
 
 {% block content %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://kit.fontawesome.com/cb3bbb09f5.js" crossorigin="anonymous"></script>
+
 
     <div class="my-3 my-md-5">
 
         <div class="container">
+
 
             <div class="page-header">
                 <h1 class="page-title">
                     Statistika
                 </h1>
             </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Aholi soni</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="qwerty" style="height: 20rem;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Yillik holis</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="qwerty1" style="height: 20rem;"></div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Yer maydoni</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-pie2" style="height: 20rem;"></div>
+                        </div>
+                    </div>
+                    <script>
+                        require(['c3', 'jquery'], function (c3, $) {
+                            $(document).ready(function () {
+                                var chart = c3.generate({
+                                    bindto: '#chart-pie2', // id of chart wrapper
+                                    data: {
+                                        columns: [
+                                            // each columns data
+                                            ['data1', 22],
+                                            ['data2', 55],
+                                            ['data3', 40],
+                                            ['data4', 33],
+                                            ['data5', 70]
+                                        ],
+                                        type: 'pie', // default type of chart
+                                        colors: {
+                                            'data1': tabler.colors["e3e29f"],
+                                            'data2': tabler.colors["#fcfa6d"],
+                                            'data3': tabler.colors["#7d7b0a"],
+                                            'data4': tabler.colors["#918f23"],
+                                            'data5': tabler.colors["#e8e7a9"]
+                                        },
+                                        names: {
+                                            // name of each serie
+                                            'data1': "Bo'sh yer maydoni",
+                                            'data2': 'Chorva maydoni',
+                                            'data3': 'Tomorqa maydoni',
+                                            'data4': 'Tadbirkorlik yer maydoni',
+                                            'data5': 'Axoli yer maydoni'
+                                        }
+                                    },
+                                    axis: {},
+                                    legend: {
+                                        show: true, //hide legend
+                                    },
+                                    padding: {
+                                        bottom: 0,
+                                        top: 0
+                                    },
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Yillik holis</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-donut2" style="height: 20rem;"></div>
+                        </div>
+                    </div>
+                    <script>
+                        require(['c3', 'jquery'], function (c3, $) {
+                            $(document).ready(function () {
+                                var chart = c3.generate({
+                                    bindto: '#chart-donut2', // id of chart wrapper
+                                    data: {
+                                        columns: [
+                                            // each columns data
+                                            ['data1', 63],
+                                            ['data2', 37]
+                                        ],
+                                        type: 'donut', // default type of chart
+                                        colors: {
+                                            'data1': tabler.colors["success"],
+                                            'data2': tabler.colors["light"]
+                                        },
+                                        names: {
+                                            // name of each serie
+                                            'data1': 'Erkaklar',
+                                            'data2': 'Ayollar'
+                                        }
+                                    },
+                                    axis: {},
+                                    legend: {
+                                        show: false, //hide legend
+                                    },
+                                    padding: {
+                                        bottom: 0,
+                                        top: 0
+                                    },
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
             <div class="row row-cards">
                 <div class="col-6 col-sm-4 col-lg-2">
                     <div class="card">
@@ -490,221 +614,385 @@
             <div class="row row-cards row-deck">
                 <div class="col-12">
                     <div class="card">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-outline table-vcenter text-nowrap card-table">
-                                <thead>
-                                <tr>
-                                    <th class="text-center w-1"><i class="icon-people"></i></th>
-                                    <th>Fermer</th>
-                                    <th>Unumdorlik</th>
-                                    <th class="text-center">Tomorqa</th>
-                                    <th>Oxirgi hisobot</th>
-                                    <th class="text-center">Tomorqadan foydalanishi</th>
-                                    <th class="text-center"><i class="icon-settings"></i></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="text-center">
-                                        <div class="avatar d-block"
-                                             style="background-image: url(/static/assets/demo/faces/female/26.jpg)">
-                                            <span class="avatar-status bg-green"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>Choriyev Sardor</div>
-                                        <div class="small text-muted">
-                                            Mahalla: Tinchlik
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="clearfix">
-                                            <div class="float-left">
-                                                <strong>42%</strong>
-                                            </div>
-                                        </div>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar bg-yellow" role="progressbar" style="width: 42%"
-                                                 aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <i class="payment">Bor</i>
-                                    </td>
-                                    <td>
-                                        <div class="small text-muted">Oxirgisi</div>
-                                        <div>4 kun oldin</div>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="mx-auto chart-circle chart-circle-xs" data-value="0.42"
-                                             data-thickness="3" data-color="blue">
-                                            <div class="chart-circle-value">42%</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">
-                                        <div class="avatar d-block"
-                                             style="background-image: url(/static/assets/demo/faces/female/17.jpg)">
-                                            <span class="avatar-status bg-green"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>Karimov Erkin</div>
-                                        <div class="small text-muted">
-                                            Mahalla: Porloq
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="clearfix">
-                                            <div class="float-left">
-                                                <strong>0%</strong>
-                                            </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Mahallalar</h3>
+                            </div>
+                            <div class="card-body" style="padding-left: 0 !important;padding-right: 0 !important;">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-outline table-vcenter text-nowrap card-table">
+                                        <thead>
+                                        <tr>
+                                            <th>Nomi</th>
+                                            <th class="text-center w-1"><i class="icon-people"></i></th>
+                                            <th>Mahalla raisi</th>
+                                            <th>Qabul nomeri</th>
+                                            <th>Unumdorlik</th>
+                                            <th class="text-center">Tomorqa</th>
+                                            <th>Oxirgi hisobot</th>
+                                            <th class="text-center">FIK</th>
+                                            <th class="text-center"><i class="icon-settings"></i></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Дустлик МФЙ</td>
+                                            <td class="text-center">
+                                                <div class="avatar d-block"
+                                                     style="background-image: url(/static/assets/demo/faces/female/26.jpg)">
+                                                    {#                                            <span class="avatar-status bg-green"></span>#}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>Эшқобилов Шухрат Эркинович</div>
+                                                <div class="small text-muted">
+                                                    котиб : Қодиров Рустам Турғун ўғли
+                                                </div>
+                                            </td>
+                                            <td>Rais: 97-244-94-69 <br>
+                                                kotib: 91-589-61-95
+                                            </td>
+                                            <td>
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <strong>42%</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-yellow" role="progressbar"
+                                                         style="width: 42%"
+                                                         aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="payment">Bor</i>
+                                            </td>
+                                            <td>
+                                                <div class="small text-muted">Oxirgisi</div>
+                                                <div>4 kun oldin</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="mx-auto chart-circle chart-circle-xs" data-value="0.42"
+                                                     data-thickness="3" data-color="blue">
+                                                    <div class="chart-circle-value">50%</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Истиклол МФЙ</td>
+                                            <td class="text-center">
+                                                <div class="avatar d-block"
+                                                     style="background-image: url(/static/assets/demo/faces/female/17.jpg)">
+                                                    <span class="avatar-status bg-green"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>Турдалиев Бахтиёр Қурбонович</div>
+                                                <div class="small text-muted">
+                                                    котиб : Каримова Раъно Қорақуловна
+                                                </div>
+                                            </td>
+                                            <td>Rais: 93-526-18-28<br>
+                                                kotib: 99-383-81-67
+                                            </td>
+                                            <td>
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <strong>25%</strong>
+                                                    </div>
 
-                                        </div>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar bg-red" role="progressbar" style="width: 0%"
-                                                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <i class="payment">Yo'q</i>
-                                    </td>
-                                    <td>
-                                        <div class="small text-muted">Oxirgisi</div>
-                                        <div>5 hafta oldin</div>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="mx-auto chart-circle chart-circle-xs" data-value="0.0"
-                                             data-thickness="3" data-color="blue">
-                                            <div class="chart-circle-value">0%</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">
-                                        <div class="avatar d-block"
-                                             style="background-image: url(/static/assets/demo/faces/female/21.jpg)">
-                                            <span class="avatar-status bg-green"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>Sardorov Po'lat</div>
-                                        <div class="small text-muted">
-                                            Mahalla: Jarariq
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="clearfix">
-                                            <div class="float-left">
-                                                <strong>96%</strong>
-                                            </div>
+                                                </div>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-red" role="progressbar"
+                                                         style="width: 25%"
+                                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="payment">Yo'q</i>
+                                            </td>
+                                            <td>
+                                                <div class="small text-muted">Oxirgisi</div>
+                                                <div>5 hafta oldin</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="mx-auto chart-circle chart-circle-xs" data-value="0.3"
+                                                     data-thickness="3" data-color="blue">
+                                                    <div class="chart-circle-value">30%</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Янгиобод МФЙ</td>
 
-                                        </div>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar bg-green" role="progressbar" style="width: 96%"
-                                                 aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <i class="payment">Bor</i>
-                                    </td>
-                                    <td>
-                                        <div class="small text-muted">Oxirgisi</div>
-                                        <div>1 kun oldin</div>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="mx-auto chart-circle chart-circle-xs" data-value="0.96"
-                                             data-thickness="3" data-color="blue">
-                                            <div class="chart-circle-value">96%</div>
-                                        </div>
-                                    </td>
+                                            <td class="text-center">
+                                                <div class="avatar d-block"
+                                                     style="background-image: url(/static/assets/demo/faces/female/21.jpg)">
+                                                    <span class="avatar-status bg-green"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>Авазов Шариф Рамазанович
+                                                </div>
+                                                <div class="small text-muted">
+                                                    котиб : Вахобов Рустам Раупович
+                                                </div>
+                                            </td>
+                                            <td>Rais: 94-469-88-89
+                                                <br>
+                                                kotib: 93-639-53-38
+                                            </td>
+                                            <td>
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <strong>96%</strong>
+                                                    </div>
 
-                                </tr>
-                                <tr>
-                                    <td class="text-center">
-                                        <div class="avatar d-block"
-                                             style="background-image: url(/static/assets/demo/faces/male/32.jpg)">
-                                            <span class="avatar-status bg-green"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>Salomov Sardor</div>
-                                        <div class="small text-muted">
-                                            Mahalla: Bozor
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="clearfix">
-                                            <div class="float-left">
-                                                <strong>6%</strong>
-                                            </div>
-                                            <div class="float-right">
-                                                <small class="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
-                                            </div>
-                                        </div>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar bg-red" role="progressbar" style="width: 6%"
-                                                 aria-valuenow="6" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <i class="payment">Bor</i>
-                                    </td>
-                                    <td>
-                                        <div class="small text-muted">Oxirgisi</div>
-                                        <div>1 kun oldin</div>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="mx-auto chart-circle chart-circle-xs" data-value="0.06"
-                                             data-thickness="3" data-color="blue">
-                                            <div class="chart-circle-value">6%</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">
-                                        <div class="avatar d-block"
-                                             style="background-image: url(/static/assets/demo/faces/female/12.jpg)">
-                                            <span class="avatar-status bg-green"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>Choriyeva Dildora</div>
-                                        <div class="small text-muted">
-                                            Mahalla: Esonobod
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="clearfix">
-                                            <div class="float-left">
-                                                <strong>36%</strong>
-                                            </div>
+                                                </div>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-green" role="progressbar"
+                                                         style="width: 96%"
+                                                         aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="payment">Bor</i>
+                                            </td>
+                                            <td>
+                                                <div class="small text-muted">Oxirgisi</div>
+                                                <div>1 kun oldin</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="mx-auto chart-circle chart-circle-xs" data-value="0.88"
+                                                     data-thickness="3" data-color="blue">
+                                                    <div class="chart-circle-value">88%</div>
+                                                </div>
+                                            </td>
 
-                                        </div>
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar bg-red" role="progressbar" style="width: 36%"
-                                                 aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <i class="payment">Bor</i>
-                                    </td>
-                                    <td>
-                                        <div class="small text-muted">Oxirgisi</div>
-                                        <div>2 oy oldin</div>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="mx-auto chart-circle chart-circle-xs" data-value="0.36"
-                                             data-thickness="3" data-color="blue">
-                                            <div class="chart-circle-value">36%</div>
-                                        </div>
-                                    </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Пахтазавод МФЙ</td>
 
-                                </tr>
+                                            <td class="text-center">
+                                                <div class="avatar d-block"
+                                                     style="background-image: url(/static/assets/demo/faces/male/32.jpg)">
+                                                    <span class="avatar-status bg-green"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>Хазратқулова Гулассал Эшқувватовна</div>
+                                                <div class="small text-muted">
+                                                    kotib: Маматқулов Шухрат Хуррамович
 
-                                </tbody>
-                            </table>
+                                                </div>
+                                            </td>
+                                            <td>Rais: 90-746-81-43<br>
+                                                kotib: 91-901-35-97
+
+                                            </td>
+                                            <td>
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <strong>6%</strong>
+                                                    </div>
+                                                    <div class="float-right">
+                                                        <small class="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
+                                                    </div>
+                                                </div>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-red" role="progressbar"
+                                                         style="width: 6%"
+                                                         aria-valuenow="6" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="payment">Bor</i>
+                                            </td>
+                                            <td>
+                                                <div class="small text-muted">Oxirgisi</div>
+                                                <div>1 kun oldin</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="mx-auto chart-circle chart-circle-xs" data-value="0.6"
+                                                     data-thickness="3" data-color="blue">
+                                                    <div class="chart-circle-value">60%</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Нурли-Диёр МФЙ
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="avatar d-block"
+                                                     style="background-image: url(/static/assets/demo/faces/female/12.jpg)">
+                                                    <span class="avatar-status bg-green"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>Ахмедов Назир Хуррамович
+                                                </div>
+                                                <div class="small text-muted">
+                                                    котиб : Боймуродов Сирожиддин Соатмуродович
+
+                                                </div>
+                                            </td>
+                                            <td>Rais: 91-970-35-68
+                                                <br>
+                                                kotib: 91-585-86-61
+
+                                            </td>
+                                            <td>
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <strong>36%</strong>
+                                                    </div>
+
+                                                </div>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-red" role="progressbar"
+                                                         style="width: 36%"
+                                                         aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="payment">Bor</i>
+                                            </td>
+                                            <td>
+                                                <div class="small text-muted">Oxirgisi</div>
+                                                <div>2 oy oldin</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="mx-auto chart-circle chart-circle-xs" data-value="0.75"
+                                                     data-thickness="3" data-color="blue">
+                                                    <div class="chart-circle-value">75%</div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row w-100">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Fermerlar</h3>
+                            </div>
+                            <div class="card-body" style="height: 300px !important; overflow: scroll;">
+                                <table class="table table-hover table-outline table-vcenter text-nowrap card-table" style="height: 300px !important; overflow: scroll;">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">ferma</th>
+                                        <th scope="col">fermer</th>
+                                        <th scope="col">region</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Олмазор барака</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Эверест Акбар</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Ўткир кўз</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Ўзбекхон УМТ</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">6</th>
+                                        <td>Халқобод агро</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Tomorqa hizmati</h3>
+                            </div>
+                            <div class="card-body" style="height: 300px !important; overflow: scroll;">
+                                <table class="table table-hover table-outline table-vcenter text-nowrap card-table" style="height: 300px !important; overflow: scroll;">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">6</th>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -715,32 +1003,32 @@
                         </div>
                         <table class="table card-table">
                             <tr>
-                                <td width="1"><i class="fa text-muted"></i></td>
+                                <td width="1"><img src="{% static 'assets/images/111.png' %}" alt=""></td>
                                 <td>Tarvuz</td>
                                 <td class="text-right"><span class="text-muted">23 tonna</span></td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-firefox text-muted"></i></td>
+                                <td><img src="/static/assets/images/22.jpg" alt=""></td>
                                 <td>Qovun</td>
                                 <td class="text-right"><span class="text-muted">15 tonna</span></td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-safari text-muted"></i></td>
+                                <td><img src="/static/assets/images/44.png" alt=""></td>
                                 <td>Gilos</td>
                                 <td class="text-right"><span class="text-muted">7 tonna</span></td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-internet-explorer text-muted"></i></td>
+                                <td><img src="/static/assets/images/33.webp" alt=""></td>
                                 <td>Pomidor</td>
                                 <td class="text-right"><span class="text-muted">9 tonna</span></td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-opera text-muted"></i></td>
+                                <td><img src="/static/assets/images/55.png" alt=""></td>
                                 <td>Kartoshka</td>
                                 <td class="text-right"><span class="text-muted">23 tonna</span></td>
                             </tr>
                             <tr>
-                                <td><i class="fa fa-edge text-muted"></i></td>
+                                <td>a</td>
                                 <td>Sut</td>
                                 <td class="text-right"><span class="text-muted">9 000 litr</span></td>
                             </tr>
@@ -1316,36 +1604,36 @@
                                 <tbody>
                                 <tr>
                                     {% for user in u %}
-                                    <td><span class="text-muted">
+                                        <td><span class="text-muted">
                                         001401
                                     </span></td>
-                                    <td><a href="invoice.html" class="text-inherit">
-                                        {{ user.full_name }}
-                                    </a></td>
-                                    <td>
-                                        {{ user.birth_date }}
-                                    </td>
-                                    <td>
-                                        {{ user.home_tel }}
-                                    </td>
-                                    <td>
-                                        {{ user.passport_data }}
-                                    </td>
-                                    <td>
-                                        {{ user.family }}
-                                    </td>
-                                    <td>
-                                        {{user.inn}}
-                                    </td>
-                                    <td>
-                                        {{user.work_info}}
-                                    </td>
-                                    <td>
-                                        {{user.registration_address}}
-                                    </td>
+                                        <td><a href="invoice.html" class="text-inherit">
+                                            {{ user.full_name }}
+                                        </a></td>
+                                        <td>
+                                            {{ user.birth_date }}
+                                        </td>
+                                        <td>
+                                            {{ user.home_tel }}
+                                        </td>
+                                        <td>
+                                            {{ user.passport_data }}
+                                        </td>
+                                        <td>
+                                            {{ user.family }}
+                                        </td>
+                                        <td>
+                                            {{ user.inn }}
+                                        </td>
+                                        <td>
+                                            {{ user.work_info }}
+                                        </td>
+                                        <td>
+                                            {{ user.registration_address }}
+                                        </td>
 
-                                </tr>
-{% endfor %}
+                                        </tr>
+                                    {% endfor %}
                                 </tr>
 
                                 </tbody>
@@ -1361,7 +1649,6 @@
             </div>
 
         </div>
-
 
     </div>
 
@@ -1410,4 +1697,6 @@
         });
     </script>
 
+
 {% endblock javascripts %}
+

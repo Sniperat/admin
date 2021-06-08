@@ -20076,6 +20076,9 @@ svg {
 .fe-share:before {
   content: "\e9c3";
 }
+#pie-chart{
+  min-height: 250px;
+}
 
 .fe-share-2:before {
   content: "\e9c4";

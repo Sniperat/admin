@@ -8,8 +8,16 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+# class Region(models.Model):
+#     region = models.CharField(max_length=50)
+#
+# class District(models.Model):
+#     district = models.ForeignKey(Region, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=50)
 
 class User_info(models.Model):
+    # user_info = models.ForeignKey(Region, on_delete=models.CASCADE)
+    # user_info = models.ForeignKey(District, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=50)
     photo = models.ImageField(upload_to='avatars/')
     birth_date = models.CharField(max_length=12)
@@ -38,6 +46,7 @@ class User_tel(models.Model):
 # информация об образовании
 class Education_info(models.Model):
     education_info = models.ForeignKey(User_info, on_delete=models.CASCADE)
+    education_type = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
     faculty = models.CharField(max_length=50)
     start_date = models.CharField(max_length=12)
@@ -56,15 +65,14 @@ class User_law_info(models.Model):
 
 
 # информаци о сожителе
-class User_housemate(models.Model):
-    User_housemate = models.ForeignKey(User_info, on_delete=models.CASCADE)
-    housemate_name = models.CharField(max_length=50)
+# class User_housemate(models.Model):
+#     User_housemate = models.ManyToManyRel(User_info)
 
 
 # номер пользователя
-class User_housemate_tel(models.Model):
-    User_housemate_tel = models.ForeignKey(User_housemate, on_delete=models.CASCADE)
-    phone_tel = models.CharField(max_length=13)
+# class User_housemate_tel(models.Model):
+#     User_housemate_tel = models.ForeignKey(User_housemate, on_delete=models.CASCADE)
+#     phone_tel = models.CharField(max_length=13)
 
 
 # информация об имуществе
@@ -136,12 +144,16 @@ class Garden_info(models.Model):
 class Plant_type_doc(models.Model):
     Plant_type_doc = models.ForeignKey(Garden_info, on_delete=models.CASCADE)
     type = models.CharField(max_length=50)
+    count = models.CharField(max_length=50)
+
 
 
 #
 class Plant_type_fact(models.Model):
     Plant_type_fact = models.ForeignKey(Garden_info, on_delete=models.CASCADE)
     type = models.CharField(max_length=50)
+    count = models.CharField(max_length=50)
+
 
 
 #
@@ -149,3 +161,5 @@ class Planting_plan(models.Model):
     Planting_plan = models.ForeignKey(Garden_info, on_delete=models.CASCADE)
     type = models.CharField(max_length=50)
     count = models.CharField(max_length=50)
+
+
