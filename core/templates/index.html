@@ -32,7 +32,7 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Yillik holis</h3>
+                            <h3 class="card-title">Yillik hosil</h3>
                         </div>
                         <div class="card-body">
                             <div id="qwerty1" style="height: 20rem;"></div>
@@ -46,14 +46,14 @@
                             <h3 class="card-title">Yer maydoni</h3>
                         </div>
                         <div class="card-body">
-                            <div id="chart-pie2" style="height: 20rem;"></div>
+                            <div id="chart-pie0" style="height: 20rem;"></div>
                         </div>
                     </div>
                     <script>
                         require(['c3', 'jquery'], function (c3, $) {
                             $(document).ready(function () {
-                                var chart = c3.generate({
-                                    bindto: '#chart-pie2', // id of chart wrapper
+                                let chart0 = c3.generate({
+                                    bindto: '#chart-pie0', // id of chart wrapper
                                     data: {
                                         columns: [
                                             // each columns data
@@ -65,7 +65,7 @@
                                         ],
                                         type: 'pie', // default type of chart
                                         colors: {
-                                            'data1': tabler.colors["e3e29f"],
+                                            'data1': tabler.colors["#e3e29f"],
                                             'data2': tabler.colors["#fcfa6d"],
                                             'data3': tabler.colors["#7d7b0a"],
                                             'data4': tabler.colors["#918f23"],
@@ -96,10 +96,19 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Yillik holis</h3>
+                            <h3 class="card-title">Yillik hisobor</h3>
                         </div>
                         <div class="card-body">
-                            <div id="chart-donut2" style="height: 20rem;"></div>
+                            <div id="chart-donut2" style="height: 18rem;"></div>
+                            <div class="d-flex justify-content-center">
+                                <b class="d-flex align-items-center">
+                                    <div style="background: #ff952e; padding: 4px ;margin-right: 5px "> </div>
+                                    export</b>
+                                <b class="d-flex align-items-center">
+                                <div style="background: blue; padding: 5px; margin-left: 50px; margin-right: 5px"> </div>
+                                import</b>
+
+                            </div>
                         </div>
                     </div>
                     <script>
@@ -120,8 +129,8 @@
                                         },
                                         names: {
                                             // name of each serie
-                                            'data1': 'Erkaklar',
-                                            'data2': 'Ayollar'
+                                            'data1': 'import',
+                                            'data2': 'export'
                                         }
                                     },
                                     axis: {},
@@ -422,7 +431,7 @@
                             <script>
                                 require(['c3', 'jquery'], function (c3, $) {
                                     $(document).ready(function () {
-                                        var chart = c3.generate({
+                                        let chart = c3.generate({
                                             bindto: '#chart-pie', // id of chart wrapper
                                             data: {
                                                 columns: [
@@ -885,7 +894,8 @@
                                 <h3 class="card-title">Fermerlar</h3>
                             </div>
                             <div class="card-body" style="height: 300px !important; overflow: scroll;">
-                                <table class="table table-hover table-outline table-vcenter text-nowrap card-table" style="height: 300px !important; overflow: scroll;">
+                                <table class="table table-hover table-outline table-vcenter text-nowrap card-table"
+                                       style="height: 300px !important; overflow: scroll;">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -898,38 +908,43 @@
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>Олмазор барака</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <td>Джўраев Мухаммадали <br>Мамашарипович</td>
+                                        <td>Toshkent</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>Эверест Акбар</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
+                                        <td>Жайловов Ғайрат <br> Тўраевич
+                                        </td>
+                                        <td>Jizzax</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
                                         <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
+                                        <td>Хушназарова Зулхумор <br> Абдукаримовна
+                                        </td>
+                                        <td>Farg'ona</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">4</th>
                                         <td>Ўткир кўз</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <td>Ҳамраева Сарвигул <br> Абдуллаевна
+                                        </td>
+                                        <td>Andijon</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">5</th>
                                         <td>Ўзбекхон УМТ</td>
-                                        <td>Thornton</td>
+                                        <td>Гулбоев Мамадали <br> Қурбон ўғли
+                                        </td>
                                         <td>@fat</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">6</th>
                                         <td>Халқобод агро</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
+                                        <td>Холиқов Рустам <br> Ишбўри ўғли
+                                        </td>
+                                        <td>Farg'ona</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -944,7 +959,8 @@
                                 <h3 class="card-title">Tomorqa hizmati</h3>
                             </div>
                             <div class="card-body" style="height: 300px !important; overflow: scroll;">
-                                <table class="table table-hover table-outline table-vcenter text-nowrap card-table" style="height: 300px !important; overflow: scroll;">
+                                <table class="table table-hover table-outline table-vcenter text-nowrap card-table"
+                                       style="height: 300px !important; overflow: scroll;">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>

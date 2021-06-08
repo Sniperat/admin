@@ -150,7 +150,7 @@ google.charts.setOnLoadCallback(drawBasic1);
 function drawBasic1() {
 
     var data = google.visualization.arrayToDataTable([
-        ['paxta', '2010 Population',],
+        ['paxta', '2021 plan',],
         ['paxta', 8175000],
         ['Kartoshka', 3792000],
         ['Tarvuz', 2695000],
