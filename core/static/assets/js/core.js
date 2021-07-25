@@ -117,7 +117,7 @@ function drawChart() {
         ["Ayollar", 1900, "silver"],
         ["Yoshlar", 3000, "gold"],
         ["Kam Ta'minlanganlar", 1200, "color: #e5e4e2"],
-        ["Noguronlar", 500, "#26bf40"],
+        ["Nogironlar", 500, "#26bf40"],
         ["Ishsizlar", 1000, "#4dc488"],
 
     ]);
@@ -151,7 +151,7 @@ function drawBasic1() {
 
     var data = google.visualization.arrayToDataTable([
         ['paxta', '2021 plan',],
-        ['paxta', 8175000],
+        ['Paxta', 8175000],
         ['Kartoshka', 3792000],
         ['Tarvuz', 2695000],
         ['Pamidor', 2099000],

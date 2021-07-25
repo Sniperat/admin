@@ -10,8 +10,8 @@ from unipath import Path
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_DIR = Path(__file__).parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(file)))
+PROJECT_DIR = Path(file).parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'  # Enable the inner app 
+    'app'  # Enable the inner app
 ]
 
 MIDDLEWARE = [
@@ -73,8 +73,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Kadastr',
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': 'Qwerty123$',
+        'PORT': '3306'
     }
 }
 
@@ -113,7 +117,7 @@ USE_TZ = True
 #############################################################
 # SRC: https://devcenter.heroku.com/articles/django-assets
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(file)))
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
