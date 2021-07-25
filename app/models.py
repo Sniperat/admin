@@ -30,8 +30,8 @@ class User_info(models.Model):
 class Mahalla(models.Model):
     post_code = models.CharField(max_length=6)
     name = models.CharField(max_length=255)
-    rais = models.OneToOneField(User_info, on_delete=models.CASCADE)
-    secretary = models.OneToOneField(User_info, on_delete=models.CASCADE)
+    rais = models.OneToOneField(User_info, on_delete=models.CASCADE, related_name='mahalla_boss')
+    secretary = models.OneToOneField(User_info, on_delete=models.CASCADE, related_name='mahalla_kotiba')
     area = models.IntegerField()
 
 
