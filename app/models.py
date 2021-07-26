@@ -21,7 +21,7 @@ class User_info(models.Model):
     mobile_phone = models.CharField(max_length=14)
     home_phone = models.CharField(max_length=14)
     work_phone = models.CharField(max_length=14)
-    mahalla = models.ForeignKey("Mahalla", on_delete=models.CASCADE)
+    mahalla = models.ForeignKey("Mahalla", on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name} {self.second_name}"
