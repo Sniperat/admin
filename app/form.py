@@ -1,7 +1,7 @@
 from django import forms
 import re
 from django.forms import widgets
-from .models import Mahalla
+from .models import Mahalla, Business, Farm
 
 
 class MahallaForm(forms.ModelForm):
@@ -28,3 +28,15 @@ class MahallaForm(forms.ModelForm):
     #     if not '@' in email:
     #         raise forms.ValidationError('электронная почта недействительна')
     #     return email
+
+
+class BussinessForm(forms.ModelForm):
+    class Meta:
+        model = Business
+        fields = '__all__'
+
+
+class FarmForm(forms.ModelForm):
+    class Meta:
+        model = Farm
+        fields = '__all__'

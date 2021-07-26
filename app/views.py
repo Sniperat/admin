@@ -10,9 +10,9 @@ from django.template import loader
 from django.http import HttpResponse
 from django import template
 from django.views import View
-from .form import MahallaForm
+from .form import MahallaForm, BussinessForm, FarmForm
 
-from .models import Mahalla, User_info
+from .models import Mahalla, User_info, Business, Farm
 
 
 @login_required(login_url="/login/")
@@ -45,7 +45,6 @@ def pages(request):
 
 class Mahalla_view(View):
     def get(self, request):
-        request.session['urlme'] = ''
         content = {
             'mahallalar': Mahalla.objects.all(),
             'form': MahallaForm()
@@ -84,3 +83,20 @@ class Mahalla_update_view(View):
         mah.save()
 
         return redirect('update_mahalla', pk)
+
+
+
+
+class Bussines_view(View):
+    def get(self, request):
+        content = {
+            'bussines': Business.objects.all(),
+            'form': BussinessForm()
+        }
+        return render(request, 'templatesMe/bussines.html', content)
+
+    def post(self, request):
+        form = MahallaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('mahalla')
